@@ -1,4 +1,5 @@
 // class 08 - functions
+
 let color = "blue"
 
 function resetColor (cor, ton) {
@@ -9,5 +10,3 @@ function resetColor (cor, ton) {
 resetColor('red', 'light')
 
 console.log(color)
-
-// 38:55
