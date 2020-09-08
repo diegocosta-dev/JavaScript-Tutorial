@@ -8,8 +8,6 @@ let hours = new Date().getHours()
 let minutes = new Date().getMinutes()
 let seconds = new Date().getSeconds()
 
-hours = 6
-minutes = 0
 
 console.log(`0${hours}`.slice(-2) + ":" + `0${minutes}`.slice(-2)+ ":" + `0${seconds}`.slice(-2))
 

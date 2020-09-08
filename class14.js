@@ -4,15 +4,16 @@
 
 // 1-for-loop // 2-while // 3-do..while // 4-for-in // 5-for-of
 
-// crescente
-//for (let i = 0; i < 5; i++) { // ++ é o msmo que i += 1 / i = i + 1
-//    console.log(i)
-//}
+for (let i = 1; i <= 5; i++) {
+    if (i % 2 != 0) {
+        console.log(i)
+    };
+};
 
-// decresente
-//for (let i = 4; i >= 0; i--) { // --é o msmo que i -= 1 / i = i - 1
-//    console.log(i)
-//}
+
+for (let i = 5; i > 0; i--) {
+    console.log(i)
+}
 
 // Given a number, return a string with dash'-'marks 
 // before and after each odd integer, but do not begin 
@@ -23,22 +24,27 @@
 
 // output = 1-3-66-3-3-2
 
-function dashatize(num) {
+//function dashatize(num) {
+//
+//    if (isNaN(num)) {
+//        return "NaN"
+//    }
+//
+//    let number = `${num}`
+//    let string = ""
+//
+//    for (let i = 0; i < number.length; i += 1) {
+//        const numberInt = parseInt(number[i], 10)
+//
+//        string += numberInt % 2 === 0 ?  number[i] : `-${number[i]}-`
+//    }
+//
+//    return string.replace(/^-{1,}|-$/g, '').replace(/--/g, "-")
+//}
 
-    if (isNaN(num)) {
-        return "NaN"
-    }
+//console.log(dashatize(-28369));
 
-    let number = `${num}`
-    let string = ""
 
-    for (let i = 0; i < number.length; i += 1) {
-        const numberInt = parseInt(number[i], 10)
-
-        string += numberInt % 2 === 0 ?  number[i] : `-${number[i]}-`
-    }
-
-    return string.replace(/^-{1,}|-$/g, '').replace(/--/g, "-")
-}
-
-console.log(dashatize(-28369));
+//function dashatize(num) {
+//    return isNaN(num) ? 'NaN' : num.toString().match(/([13579]|[02468]+)/g).join('-');
+//  };
