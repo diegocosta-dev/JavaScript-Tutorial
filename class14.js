@@ -24,27 +24,22 @@ for (let i = 5; i > 0; i--) {
 
 // output = 1-3-66-3-3-2
 
-//function dashatize(num) {
-//
-//    if (isNaN(num)) {
-//        return "NaN"
-//    }
-//
-//    let number = `${num}`
-//    let string = ""
-//
-//    for (let i = 0; i < number.length; i += 1) {
-//        const numberInt = parseInt(number[i], 10)
-//
-//        string += numberInt % 2 === 0 ?  number[i] : `-${number[i]}-`
-//    }
-//
-//    return string.replace(/^-{1,}|-$/g, '').replace(/--/g, "-")
-//}
+function dashatize(num) {
 
-//console.log(dashatize(-28369));
+    if (isNaN(num)) {
+        return "NaN"
+    }
 
+    let number = `${num}`
+    let string = ""
 
-//function dashatize(num) {
-//    return isNaN(num) ? 'NaN' : num.toString().match(/([13579]|[02468]+)/g).join('-');
-//  };
+    for (let i = 0; i < number.length; i += 1) {
+        const numberInt = parseInt(number[i], 10)
+
+        string += numberInt % 2 === 0 ?  number[i] : `-${number[i]}-`
+    }
+
+    return string.replace(/^-{1,}|-$/g, '').replace(/--/g, "-")
+}
+
+console.log(dashatize(-28369));

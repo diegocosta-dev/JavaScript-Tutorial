@@ -1,3 +1,5 @@
+// funcation
+
 const numberOne = 2
 const numberTwo = 39
 

@@ -2,15 +2,15 @@
 
 const name = "Diego"
 
-//for (index in name) {
-//    console.log(`${name[index]} letra na posição ${index}`)
-//}
+for (index in name) {
+    console.log(`${name[index]} letra na posição ${index}`)
+}
 
 let array = [5,'d',true,1.3, undefined]
 
-//for (key in array) {
-//    console.log(`${typeof array[key]}`)
-//}
+for (key in array) {
+    console.log(`${typeof array[key]}`)
+}
 
 const people = {
     name: "Diego",
@@ -18,9 +18,9 @@ const people = {
     height: 1.86
 }
 
-//for (key in people) {
-//    console.log(`${key} ${people[key]}`)
-//}
+for (key in people) {
+    console.log(`${key} ${people[key]}`)
+}
 
 // for of
 

@@ -1,32 +1,34 @@
 // fizzbuzz
 
-// divisivel por 3 return fizz
-// divisivel por 5  return buzz
-// divisivel por 3 e por 5 return fizzbuzz
-// não é divisivel por 3 ou 5 return entrada
-// Não é um número return "não é um numero"
+// divisible by 3 return fizz
+// divisible by 5 return buzz
+// divisible by 3 and 5 return fizzbuzz
+// not divisible by 3 or 5 return input
+// not is a nunber return "NaN"
 
-function fizzbuzz(entrada) {
-    const condtionOne = entrada % 3 === 0
-    const conditionTwo = entrada % 3 === 0 && entrada % 5 === 0
+function fizzbuzz(input) {
 
-    // da pra verificar assim também -- typeof entrada !== 'number'
-    if (entrada !== Number(entrada)) {
-        return "Não é um número"
+    const divisibleBy5 = input % 5 === 0
+    const divisibleBy3And5 = input % 3 === 0 && input % 5 === 0
+    const notDivisible = input % 3 !== 0 && input % 5 !== 0
+    const NotANumber = input !== Number(input)
+
+    if (NotANumber) {
+        return "NaN"
     }
 
-    if (entrada % 3 !== 0 && entrada % 5 !== 0) {
-        return entrada
+    if (notDivisible) {
+        return input
     }
     
-    if (conditionTwo) {
+    if (divisibleBy3And5) {
         return "FizzBuzz"
     }
 
-    if (condtionOne) {
-        return "Fizz"
+    if (divisibleBy5) {
+        return "Buzz"
     } 
-    else return "Buzz"
+    else return "Fizz"
 }
 
-console.log(fizzbuzz(6))
+console.log(fizzbuzz(5))
