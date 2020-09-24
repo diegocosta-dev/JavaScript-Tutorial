@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horas</title>
+
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        :root {
+
+        }
+        body {
+            background-color: rgb(133, 188, 255);
+            ;
+        }
+        .mensagem h1 {
+            margin-top: 50px;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 40px;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
+        }
+
+        #card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            margin: 20px auto;
+            width: 30%;
+            height: 300px;
+            box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #card p {
+            font-size: 18px;
+            margin-top: 10px;
+            font-family: sans-serif;
+        }
+
+        #card img {
+            display: flex;
+            width: 250px;
+            height: 250px;  
+            border-radius: 50%;
+            padding: 25px;
+        }
+        .mark {
+            text-align: center;
+            color: white;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="mensagem"><h1>Hora do dia</h1></div>
+    <div id="card">
+        <p class="horas"></p>
+        <div class="imge">
+            <img src="https://exame.com/wp-content/uploads/2016/09/size_960_16_9_dia-ensolarado.jpg" alt="dia">
+        </div>
+        
+    </div>
+
+    <p class="mark">&copy By Diego Costa</p>
+
+
+    <script>
+        const horasResult = document.querySelector('.horas')
+        const imagem = document.querySelector('.imge > img')
+        const fundo = document.querySelector('body')
+
+        function timming() {
+            const horasAgora = new Date
+            const horas = `0${horasAgora.getHours()}`.slice(-2) // 
+            const minutes = `0${horasAgora.getMinutes()}`.slice(-2)
+            const seconds = `0${horasAgora.getSeconds()}`.slice(-2)
+            return {horas, minutes, seconds}
+        }
+
+        const hora = timming().horas
+        const minutes = timming().minutes
+        const seconds = timming().seconds
+        
+        if (hora >= 6 && hora < 12) {
+            fundo.style.backgroundColor = '#3bd1ff'
+            imagem.src = "https://image.freepik.com/fotos-gratis/lindo-ceu-e-nuvens-em-um-dia-claro_35708-212.jpg"
+            var msg = 'Bom dia'
+        } else if (hora >= 12 && hora < 18) {
+            fundo.style.backgroundColor = '#ffe017'
+            imagem.src = "https://cdn.mensagenscomamor.com/content/images/m000193815.jpg?v=0&w=300&h=200"
+
+            var msg = 'boa tarde'
+        } else {
+            fundo.style.backgroundColor = '#46555e'
+            imagem.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR0TMyOMvwKDf-pEwQ_SLMn6E673Gvo5OaOGw&usqp=CAU"
+            var msg = 'boa noite'
+        }
+
+        horasResult.innerHTML = `Agora são ${timming().horas}:${timming().minutes}:${timming().seconds} ${msg}`
+        setInterval(() => {horasResult.innerHTML = `Agora são ${timming().horas}:${timming().minutes}:${timming().seconds} ${msg}`}, 1000)
+        
+    
+
+    </script>
+</body>
+</html>

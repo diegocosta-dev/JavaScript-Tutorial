@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Nacionalidade</h2>
+    <p>Qual é sua nacionalidade</p>
+    <label for="pais" id="pais">
+        <select name="pais">
+            <option value="BRASIL">BRASIL</option>
+            <option value="EUA">EUA</option>
+            <option value="CANADA">CANADA</option>
+            <option value="FRANÇA">FRANÇA</option>
+            <option value="MEXICO">MEXICO</option>
+        </select>
+
+        <button id="escolha">Escolher</button>
+    </label>
+    <p class="resultado"></p>
+    <script>
+        const button = document.querySelector('button#escolha')
+        const pais = document.getElementsByName('pais')
+        let resultado = document.querySelector('.resultado')
+        button.addEventListener('click', () => {
+           switch (pais[0].value) {
+               case "BRASIL" : resultado.innerHTML = "Brasileiro";
+                    break;
+               case "EUA" : resultado.innerHTML = "Estadunidense";
+                    break;
+               case "CANADA" : resultado.innerHTML = "Canadense";
+                    break;
+               case "FRANÇA" : resultado.innerHTML = "Francês";
+                    break;
+               case "MEXICO" : resultado.innerHTML = "Mexicano";
+                    break;
+               default: resultado.innerHTML = "Brasileiro";
+               
+           }
+        })
+
+    </script>
+</body>
+</html>

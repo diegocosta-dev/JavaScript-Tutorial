@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade</title>
+
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        :root {
+
+        }
+        body {
+            background-color: rgb(133, 188, 255);
+            ;
+        }
+        .mensagem h1 {
+            margin-top: 50px;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 40px;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
+        }
+
+        #card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            margin: 20px auto;
+            width: 35%;
+            height: 200px;
+            box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .mark {
+            text-align: center;
+            color: white;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+        }
+        .anoNascimento
+        {
+            display: flex;
+            font-size: 18px;
+            align-items: center;
+            padding:15px
+            
+        }
+
+        .anoNascimento p,
+        .sexos *
+        {
+            margin-right: 8px;
+            
+        }
+
+        .anoNascimento input {
+            width: 150px;
+            height: 25px;
+        }
+
+        .sexos
+        {
+            display: flex;
+            font-size: 18px;
+            align-items: center;
+            padding:15px
+        }
+
+        .resto {
+            padding: 15px
+        }
+        
+        .buttonV {
+            padding: 5px 18px;
+            margin-bottom: 15px;
+        }
+
+        .imgs {
+
+            border-radius: 50%;
+            width: 200px;    
+            height: 200px;
+            text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mensagem"><h1>Verificador de idade</h1></div>
+    <div id="card">
+        
+        <div class="anoNascimento">
+            <p>Ano de Nascimento:</p>
+            <input type="number" id="idade">
+        </div>
+
+        <div class="sexos">
+            <p>Sexo:</p>
+
+            <input type="radio" name="sexo" id="mas" checked>
+            <label for="Masculino">Masculino</label>
+            <input type="radio" name="sexo" id="fem">
+            <label for="Feminino">Feminino</label>
+
+        </div>
+        <button class="buttonV">Verificar</button>
+
+        <div class="resto">
+            <p>Preencha os dados acima para ver o resultado!</p>
+        </div>
+
+        <div class="imgs">
+        </div>
+        
+        
+    </div>
+
+    <p class="mark">&copy By Diego Costa</p>
+
+
+    <script>
+        const anoNascimento = document.querySelector('.anoNascimento input')
+        const sexos = document.getElementsByName('sexo')
+        const resultado = document.querySelector('.resto > p')
+        const button = document.querySelector('.buttonV')
+        const res = document.querySelector('.imgs')
+        const data = new Date
+        const ano = data.getUTCFullYear()
+        const card = document.querySelector('#card')
+
+        function sexo() {
+            if (sexos[0].checked) return 'homem'
+            else return "mulher"
+        }
+
+        function img(idade, genero) {
+            card.style.height = '500px'
+            //const imagem = document.createElement('img')
+            //imagem.setAttribute('class', 'imgs')
+            //imagem.src = 'https://source.unsplash.com/collection/11529040/500x500'
+            //res.appendChild(imagem)
+            const imgs = {
+                
+                crianca: {
+                    mulher: 'url(https://source.unsplash.com/collection/11529040/500x500)',
+                    homem: 'url(https://source.unsplash.com/collection/2085770/500x500)'
+                },
+                jovem: {
+                    mulher: 'url(https://source.unsplash.com/collection/407468/500x500)',
+                    homem: 'url(https://source.unsplash.com/collection/10012747/500x500)'
+                },
+
+                adulto: {
+                    mulher: 'url(https://source.unsplash.com/collection/8685833/500x500)',
+                    homem: 'url(https://source.unsplash.com/collection/1971336/500x500)'
+                },
+
+                idoso: {
+                    mulher: 'url(https://source.unsplash.com/collection/10508589/500x500)',
+                    homem: 'url(https://source.unsplash.com/collection/4351443/500x500)'
+                }
+            }
+
+            if (idade < 10) {
+                res.style.backgroundImage = imgs.crianca[genero]
+            }
+            else if (idade < 22) {
+                res.style.backgroundImage = imgs.jovem[genero]
+            }
+            else if (idade < 50) {
+                res.style.backgroundImage = imgs.adulto[genero]
+            }
+            else {
+                res.style.backgroundImage = imgs.idoso[genero]
+            }
+        
+        }
+
+        button.addEventListener('click', () => {
+            const idade = Number(ano) - Number(anoNascimento.value)
+            const genero = sexo()
+
+            if (genero == 'homem' && idade > 0 && idade < 115) {
+                resultado.innerHTML = `Detectamos um ${genero} entre ${idade-1} e ${idade} anos`
+                const image = img(idade, genero)
+
+            }
+            else if (genero =="mulher" && idade > 0 && idade < 115){
+                resultado.innerHTML = `Detectamos uma ${genero} entre ${idade-1} e ${idade} anos`
+                const image = img(idade, genero)
+
+            }
+            else {
+                resultado.innerHTML = "Preencha os dados acima corretamente"
+                card.style.height = '200px'
+            }
+        })
+
+    </script>
+</body>
+</html>

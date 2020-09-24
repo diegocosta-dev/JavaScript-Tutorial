@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript Tutorial</title>
+
+    <style>
+        .container {
+            background: green;
+            width: 150px;;
+            height: 150px;
+            color: white;
+            line-height: 150px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body> 
+    <div class="container">
+        1
+    </div>
+
+
+    <div class="calc">
+        <h2>Somando Valores</h2>
+        <input type="number" id="valor1"> +
+        <input type="number" id="valor2">
+        <button id="somar">Somar</button>
+        <p class="result">Resultado</p>
+        
+    </div>
+    <script>
+        // Event reference - https://developer.mozilla.org/pt-BR/docs/Web/Events
+        const value1 = document.getElementById('valor1')
+        const value2 = document.getElementById('valor2')
+        const result = document.querySelector('.result')
+        const button = document.getElementById('somar')
+
+        button.addEventListener('click', () => {
+            result.innerHTML = `A soma entre ${value1.value} e ${value2.value} é ${Number(value1.value) + Number(value2.value)}`
+        })
+
+
+        const div = document.querySelector('.container')
+        div.addEventListener('click', clicar)
+        div.addEventListener('mouseenter', entrar)
+        div.addEventListener('mouseout', sair)
+
+
+        function clicar() {
+            div.innerHTML = String( Number( div.innerHTML ) + 1 )
+        }
+
+        function entrar() {
+            div.style.backgroundColor = 'red'
+        }
+
+        function sair() {
+            div.style.backgroundColor = 'green'
+        }
+
+    </script>
+</body>
+</html>

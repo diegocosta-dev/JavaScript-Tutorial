@@ -5,10 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>javascript Tutorial</title>
-    <script src="/aula01.js"></script>
+
+    <style>
+
+    </style>
     
 </head>
-<body>
-    <h1>JavaScript</h1>
+<body> 
+    <h1>Olá Mundo</h1>
+    <p id="nome">Sem nome</p>
+    <button onclick="changeName()">Mudar nome</button>
+    <h1>Olá Mundo</h1>
+    <h2 id="soma">Somar</h2>
+    <button onclick="sum()">Somar</button>
+    <script>
+         function changeName() {
+            const nome = window.prompt("Quel é seu nome")
+            const p = document.getElementById('nome')
+            p.innerHTML = nome
+         }
+
+         function sum() {
+             const sumHtml = document.getElementById('soma')
+             numberOne = Number(window.prompt('Escolha um números'))
+             numberTwo = Number(window.prompt('Escolha mais um numero'))
+             sumHtml.innerHTML = numberOne + numberTwo
+             if (sumHtml.innerHTML == 'NaN') sumHtml.innerHTML = 'Valor invalido'
+
+         }
+    </script>
 </body>
 </html>

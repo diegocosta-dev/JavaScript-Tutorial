@@ -1,6 +1,6 @@
 // while loop
 
-
+/*
 let i = 5;
  
 while (i >= 1) {
@@ -9,7 +9,7 @@ while (i >= 1) {
     };
     i--;
 };
-
+*/
 
 // Do..while
 
@@ -19,6 +19,6 @@ while (i >= 1) {
 let i = 1
 
 do {
-    console.log(`Digitando... ${i}`)
-    i++
+    console.log(`Digitando... ${i + 1}`)
+    i = 2
 } while (i !== 10)

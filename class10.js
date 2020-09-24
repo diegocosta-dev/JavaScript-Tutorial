@@ -16,7 +16,9 @@
 //console.log( a <= b )
 let value = 200
 let value2 = 199
-let client = value || value2 == 200? true : false
+
+// operador ternario
+let client = value || value2 == 200? 'true' : 'false'
 
 console.log(client == true  ? "Verdadeiros" : "Falso")
 // Equality operators
